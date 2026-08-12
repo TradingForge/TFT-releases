@@ -1,0 +1,59 @@
+name: Bug report
+description: Something in TradingForge Terminal does not work as expected
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Issues here are public.** Never paste API keys, API secrets, passwords or your `accounts.dat`.
+        Log files do not contain your keys, but they do contain account names and server addresses.
+
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Help → About
+      placeholder: "1.0.0"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: build
+    attributes:
+      label: Build
+      options: ["64-bit", "32-bit"]
+    validations:
+      required: true
+
+  - type: dropdown
+    id: broker
+    attributes:
+      label: Broker
+      options: ["MetaTrader 4", "Binance Futures (live)", "Binance Futures (testnet)", "Not broker-related"]
+    validations:
+      required: true
+
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, what you expected, and what happened instead.
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Journal / log output
+      description: >
+        The Journal tab around the failure, or the matching file from
+        `%LOCALAPPDATA%\Programs\TradingForge Terminal\Workdir\log\`.
+      render: text
+
+  - type: checkboxes
+    id: scrubbed
+    attributes:
+      label: Before submitting
+      options:
+        - label: I checked that this report contains no API keys, secrets or passwords
+          required: true
