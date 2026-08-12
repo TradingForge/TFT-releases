@@ -1,0 +1,23 @@
+name: Feature request
+description: Suggest something TradingForge Terminal should be able to do
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What are you trying to do?
+      description: Describe the situation, not only the feature — the problem often has a simpler solution.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: How should it work?
+
+  - type: input
+    id: mt4
+    attributes:
+      label: Does MetaTrader 4 do this?
+      description: If yes, say where — matching MT4 behaviour is usually the fastest path in.
+      placeholder: "e.g. MT4 shows this in the Terminal -> Trade tab"
