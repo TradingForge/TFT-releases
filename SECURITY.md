@@ -1,17 +1,14 @@
 # Security Policy
 
-TradingForge Terminal connects to live brokerage and exchange accounts. A flaw here can cost someone
-money, so please report one privately rather than publicly.
-
 ## Reporting a vulnerability
 
-**Use [Report a vulnerability](https://github.com/TradingForge/TFT-releases/security/advisories/new)** —
-a private channel only you and the maintainers can see.
-If that page is unavailable, email **tradingforge@gmail.com** with `SECURITY` in the subject.
+Use **[Report a vulnerability](https://github.com/TradingForge/TFT-releases/security/advisories/new)** —
+a private channel only you and the maintainers can see. If that page is unavailable, email
+**tradingforge@gmail.com** with `SECURITY` in the subject.
 
 **Please do not open a public issue or discussion for a security problem.** Every published version stays
-installed on users' machines until they update; a public report tells everyone what to exploit while those
-installations are still vulnerable.
+installed until users update, so a public report tells everyone what to exploit while those installations
+are still vulnerable.
 
 ## Your data stays on your machine
 
@@ -31,20 +28,11 @@ The Terminal makes network connections only for:
 - **Notifications** — Telegram or email, only if you configure them yourself
 - **Your own Expert Advisors** — anything they request, and only if you allow web requests in the options
 
-## What we consider in scope
-
-- The Terminal itself, the installer, and the built-in update mechanism
-- Handling of stored credentials, API keys and log contents
-- Anything that lets one account's data or actions reach another
-
-Out of scope: bugs in Expert Advisors you or third parties wrote, broker and exchange APIs themselves,
-and anything that requires an attacker to already control the machine the Terminal runs on.
-
 ## What to expect
 
 This is a small team and the product is in beta, so these are intentions rather than guarantees:
 
-- We aim to acknowledge a report within a few days
+- We aim to acknowledge a report within a few weeks
 - Confirmed issues are fixed in the next release; severe ones get a release of their own
 - Release notes describe security fixes only in general terms until users have had time to update,
   and the specifics follow afterwards
