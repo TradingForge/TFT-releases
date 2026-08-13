@@ -1,46 +1,39 @@
-# Security Policy
+# Security
 
-## Reporting a vulnerability
+## We are not responsible for your trading
 
-Use **[Report a vulnerability](https://github.com/TradingForge/TFT-releases/security/advisories/new)** —
-a private channel only you and the maintainers can see. If that page is unavailable, email
-**tradingforge@gmail.com** with `SECURITY` in the subject.
+TradingForge Terminal is a tool. Every order it places is placed because you or your Expert Advisor
+asked for it. Trading involves substantial risk of loss and is not suitable for every investor, and
+automated trading can lose money faster than manual trading.
 
-**Please do not open a public issue or discussion for a security problem.** Every published version stays
-installed until users update, so a public report tells everyone what to exploit while those installations
-are still vulnerable.
+You are responsible for what your Expert Advisors do, for the settings you give them, and for the
+accounts you connect. Test on a demo or testnet account first.
 
-## Your data stays on your machine
+## We collect nothing
 
-**TradingForge operates no server, and the Terminal sends us nothing.** There is no telemetry, no
-analytics and no account registration. Your credentials, positions, trade history, Expert Advisors and
-logs live only in the Terminal's `Workdir` on your own PC; API keys and passwords are stored encrypted
-and are never uploaded anywhere.
+**TradingForge operates no server, and the Terminal sends us nothing.** No telemetry, no analytics, no
+account registration. Your credentials, positions, trade history, Expert Advisors and logs live only in
+the Terminal's `Workdir` on your own PC; API keys and passwords are stored encrypted and are never
+uploaded anywhere.
 
-The Terminal makes network connections only for:
+The Terminal connects to the network only for:
 
 - **Your broker or exchange** — the account you connected, over its own API
 - **MetaTrader 4 accounts** — during login the MT4 connectivity library also contacts its vendor's
-  login-id service (`loginid-mt4.mtapi.io`), resolving it through Cloudflare DNS-over-HTTPS. This is part
-  of how MT4 connectivity works and is not operated by us
-- **Update checks** — a request to this GitHub repository for the current version; it carries no
-  information about you or your accounts
+  login-id service (`loginid-mt4.mtapi.io`), resolved through Cloudflare DNS-over-HTTPS. This is part of
+  how MT4 connectivity works and is not operated by us
+- **Update checks** — a request to this repository for the current version; it carries no information
+  about you or your accounts
 - **Notifications** — Telegram or email, only if you configure them yourself
 - **Your own Expert Advisors** — anything they request, and only if you allow web requests in the options
 
-## What to expect
+## Bugs are fixed in coming updates
 
-This is a small team and the product is in beta, so these are intentions rather than guarantees:
+Report anything that looks wrong in [Issues](https://github.com/TradingForge/TFT-releases/issues), and
+ask questions in [Discussions](https://github.com/TradingForge/TFT-releases/discussions). Fixes ship in
+the next release; the Terminal will offer it to you itself.
 
-- We aim to acknowledge a report within a few weeks
-- Confirmed issues are fixed in the next release; severe ones get a release of their own
-- Release notes describe security fixes only in general terms until users have had time to update,
-  and the specifics follow afterwards
-- We will credit you if you want to be credited
+Only the **latest release** receives fixes — update first, then report if the problem persists.
 
-There is no paid bug bounty.
-
-## Supported versions
-
-Only the **latest release** receives fixes. Older versions are not patched — update first, then report if
-the problem persists.
+> Issues and Discussions are public. **Never paste API keys, API secrets, passwords or your
+> `accounts.dat`.** Log files contain no keys, but they do contain account names and server addresses.
