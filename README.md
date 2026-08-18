@@ -165,9 +165,6 @@ No additional software, no MetaTrader terminal and no bridges.
 - **How your data is handled** → [SECURITY.md](SECURITY.md)
 - **Contact us directly** → [tradingforge.terminal@gmail.com](mailto:tradingforge.terminal@gmail.com)
 
-> ⚠️ Issues and Discussions are public. **Never paste API keys, API secrets, passwords or your
-> `accounts.dat`.** Log files contain no keys, but they do contain account names and server addresses.
-
 ## Legal
 
 Copyright © TradingForge. All rights reserved. This software is proprietary: licensed for use, not for
