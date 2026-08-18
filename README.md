@@ -17,8 +17,7 @@ have working MQL EAs, but moving them to another broker, exchange, or asset clas
 maintaining bridges, running additional terminals, and accepting extra points of failure.
 
 **TradingForge Terminal removes that platform lock-in.** Run your existing MQL EAs across brokers,
-exchanges, and trading APIs without rewriting them — without MT4/MT5 terminals or fragile third-party
-bridges in the middle.
+exchanges, and trading APIs. No MT4/MT5 terminals or fragile third-party bridges in the middle required.
 
 **One strategy. Multiple markets. Direct execution.**
 
