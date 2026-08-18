@@ -10,7 +10,7 @@
 [![Latest release](https://img.shields.io/github/v/release/TradingForge/TFT-releases?label=latest)](https://github.com/TradingForge/TFT-releases/releases/latest)
 [![Downloads](https://img.shields.io/github/downloads/TradingForge/TFT-releases/total?label=downloads)](https://github.com/TradingForge/TFT-releases/releases)
 [![Platform](https://img.shields.io/badge/platform-Windows%2010%2F11-blue)](#requirements)
-[![Status](https://img.shields.io/badge/status-beta-orange)](#installing-and-updating)
+[![Status](https://img.shields.io/badge/status-beta-orange)](#known-limitations)
 
 Your trading strategy shouldn't be locked to the platform it was built for. Traders and developers often
 have working MQL EAs, but moving them to another broker, exchange, or asset class means rewriting code,
@@ -21,20 +21,6 @@ already trust, and run it across brokers, exchanges, and trading APIs through a 
 without MT4/MT5 terminals or fragile third-party bridges in the middle.
 
 **One strategy. Multiple markets. Direct execution.**
-
----
-
-## Download
-
-| | |
-|---|---|
-| **64-bit** (recommended) | [**TFT-Setup-x64.exe**](https://github.com/TradingForge/TFT-releases/releases/latest/download/TFT-Setup-x64.exe) |
-| **32-bit** | [**TFT-Setup-x86.exe**](https://github.com/TradingForge/TFT-releases/releases/latest/download/TFT-Setup-x86.exe) |
-
-Installs for the current user, no administrator rights. Take the 64-bit build unless your Expert Advisors
-`#import` a **32-bit DLL** — those need the 32-bit build. Both can be installed side by side.
-
-The Terminal offers new versions itself (*Help → Check for updates*).
 
 ---
 
@@ -79,12 +65,27 @@ Your source is compiled, not interpreted, and the MQL4 standard library is imple
 same EA that ran in MetaTrader runs here, against brokers MetaTrader never supported. Strategy scripts feed
 the runtime, which routes orders to whichever venue you connect:
 
-```mermaid
-flowchart LR
-    SRC["Strategy source:<br/>MT4, MT5*, TradingView*"] --> TFT["TradingForge Terminal:<br/>Runtime + Transpiler"] --> OUT["Brokers and exchanges:<br/>MT4, Binance USDT futures,<br/>OKX*, cTrader*, Interactive Brokers*,<br/>FIX*, Proprietary API*, DEX*, Custom*"]
-```
+<div align="center">
+  <img src="assets/hub.svg" alt="Strategy scripts feed the TFT Runtime, which routes orders to MT4, Binance USDT futures and other venues" width="760">
+</div>
 
-Items marked `*` are planned or in development.
+Highlighted in amber = available now (MT4, Binance USDT futures); the rest are planned or in development.
+
+---
+
+## Download
+
+| | |
+|---|---|
+| **64-bit** (recommended) | [**TFT-Setup-x64.exe**](https://github.com/TradingForge/TFT-releases/releases/latest/download/TFT-Setup-x64.exe) |
+| **32-bit** | [**TFT-Setup-x86.exe**](https://github.com/TradingForge/TFT-releases/releases/latest/download/TFT-Setup-x86.exe) |
+
+Installs for the current user, no administrator rights. Take the 64-bit build unless your Expert Advisors
+`#import` a **32-bit DLL** — those need the 32-bit build. Both can be installed side by side.
+
+The Terminal offers new versions itself (*Help → Check for updates*).
+
+---
 
 ## Getting Started
 
@@ -103,10 +104,7 @@ No additional software, no MetaTrader terminal and no bridges.
      Until then, link a YouTube video as a clickable thumbnail:
      [![Watch: attach an EA in one minute](PASTE_THUMBNAIL_URL)](PASTE_YOUTUBE_URL) -->
 
-## Why run MT4 Expert Advisors through TFT?
-
-Even when your broker is MetaTrader 4, running your Expert Advisors here adds things MetaTrader itself does
-not give you:
+## Why still run MQL script through TFT
 
 - **Multiple accounts at once** — one terminal driving several MT4 accounts in parallel (coming soon).
 - **Performance** — your EAs are compiled to native code, not interpreted; more on this in a later note.
@@ -134,20 +132,6 @@ not give you:
 - **.NET 10 Desktop Runtime** — Setup installs it automatically if it is missing
 - ~130 MB of disk space
 - An account with a supported broker
-
-## Installing and updating
-
-**Update** — your accounts, settings and Expert Advisors are kept.
-
-**Uninstall** — removes the program but deliberately **keeps `Workdir\MQL4`**, so your own Expert
-Advisors, indicators and libraries are never deleted. Stored credentials and logs are removed.
-
-> **Windows SmartScreen** may warn about an unknown publisher: the installer is not code-signed yet.
-> Choose *More info → Run anyway*, or verify the download against
-> [SHA256SUMS.txt](https://github.com/TradingForge/TFT-releases/releases/latest/download/SHA256SUMS.txt):
-> ```powershell
-> Get-FileHash -Algorithm SHA256 .\TFT-Setup-x64.exe
-> ```
 
 ## Known limitations
 
