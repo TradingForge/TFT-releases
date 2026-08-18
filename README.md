@@ -67,10 +67,8 @@ same EA that ran in MetaTrader runs here, against brokers MetaTrader never suppo
 the runtime, which routes orders to whichever venue you connect:
 
 <div align="center">
-  <img src="assets/hub.svg" alt="Strategy scripts feed the TFT Runtime, which routes orders to MT4, Binance USDT futures and other venues" width="760">
+  <img src="assets/hub.png" alt="Strategy scripts feed the TFT Runtime, which routes orders to MT4, Binance USDT futures, OKX, cTrader, Interactive Brokers and other venues" width="880">
 </div>
-
-Highlighted in amber = available now (MT4, Binance USDT futures); the rest are planned or in development.
 
 ---
 
@@ -119,7 +117,7 @@ No additional software, no MetaTrader terminal and no bridges.
 
 - Multiple accounts at once, each with its own Expert Advisors.
 - Exchange-native stop-loss / take-profit on Binance.
-- More broker connectors.
+- More backends.
 - Charting — a built-in price chart to view bars, draw objects, and plot indicators on-chart.
 - Linux and macOS support.
 - MetaTrader 5 (MQL5) support — compile and run your MQL5 Expert Advisors and indicators, the way MQL4
