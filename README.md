@@ -163,6 +163,7 @@ No additional software, no MetaTrader terminal and no bridges.
 - **What's not done yet (known limitations & roadmap)** → [NOTES.md](NOTES.md)
 - **What changed per version** → [CHANGELOG.md](CHANGELOG.md) and the [releases](https://github.com/TradingForge/TFT-releases/releases)
 - **How your data is handled** → [SECURITY.md](SECURITY.md)
+- **Contact us directly** → [tradingforge.terminal@gmail.com](mailto:tradingforge.terminal@gmail.com)
 
 > ⚠️ Issues and Discussions are public. **Never paste API keys, API secrets, passwords or your
 > `accounts.dat`.** Log files contain no keys, but they do contain account names and server addresses.
