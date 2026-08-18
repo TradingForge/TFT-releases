@@ -3,7 +3,7 @@
      cannot be cleaned afterwards. -->
 <!-- ![TradingForge Terminal](PASTE_BANNER_URL_HERE) -->
 
-# TradingForge Terminal
+# <img src="assets/logo_mark.png" alt="" height="40" align="middle">&nbsp; TradingForge Terminal
 
 **Keep your trading script. Change everything behind it.**
 
