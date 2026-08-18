@@ -9,7 +9,7 @@
 
 [![Latest release](https://img.shields.io/github/v/release/TradingForge/TFT-releases?label=latest)](https://github.com/TradingForge/TFT-releases/releases/latest)
 [![Downloads](https://img.shields.io/github/downloads/TradingForge/TFT-releases/total?label=downloads)](https://github.com/TradingForge/TFT-releases/releases)
-[![Platform](https://img.shields.io/badge/platform-Windows%2010%2F11-blue)](#requirements)
+[![Platform](https://img.shields.io/badge/platform-Windows%2010%2F11-blue)](#known-limitations)
 [![Status](https://img.shields.io/badge/status-beta-orange)](#known-limitations)
 
 Your trading strategy shouldn't be locked to the platform it was built for. Traders and developers often
@@ -83,6 +83,8 @@ Highlighted in amber = available now (MT4, Binance USDT futures); the rest are p
 Installs for the current user, no administrator rights. Take the 64-bit build unless your Expert Advisors
 `#import` a **32-bit DLL** — those need the 32-bit build. Both can be installed side by side.
 
+**.NET 10 Desktop Runtime** — Setup installs it automatically if it is missing.
+
 The Terminal offers new versions itself (*Help → Check for updates*).
 
 ---
@@ -104,7 +106,7 @@ No additional software, no MetaTrader terminal and no bridges.
      Until then, link a YouTube video as a clickable thumbnail:
      [![Watch: attach an EA in one minute](PASTE_THUMBNAIL_URL)](PASTE_YOUTUBE_URL) -->
 
-## Why still run MQL script through TFT
+## Why still run MT4 account through TFT
 
 - **Multiple accounts at once** — one terminal driving several MT4 accounts in parallel (coming soon).
 - **Performance** — your EAs are compiled to native code, not interpreted; more on this in a later note.
@@ -125,13 +127,6 @@ No additional software, no MetaTrader terminal and no bridges.
   from another).
 - Linked accounts (copy-trading) — a signal on one account enters or exits the same trade across many
   linked accounts at once, in the same millisecond.
-
-## Requirements
-
-- Windows 10 version 1809 (build 17763) or later, or Windows 11
-- **.NET 10 Desktop Runtime** — Setup installs it automatically if it is missing
-- ~130 MB of disk space
-- An account with a supported broker
 
 ## Known limitations
 
