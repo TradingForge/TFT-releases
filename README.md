@@ -16,9 +16,9 @@ Your trading strategy shouldn't be locked to the platform it was built for. Trad
 have working MQL EAs, but moving them to another broker, exchange, or asset class means rewriting code,
 maintaining bridges, running additional terminals, and accepting extra points of failure.
 
-**TradingForge Terminal removes that platform lock-in.** Write your strategy once, keep the MQL logic you
-already trust, and run it across brokers, exchanges, and trading APIs through a single execution layer —
-without MT4/MT5 terminals or fragile third-party bridges in the middle.
+**TradingForge Terminal removes that platform lock-in.** Run your existing MQL EAs across brokers,
+exchanges, and trading APIs without rewriting them — without MT4/MT5 terminals or fragile third-party
+bridges in the middle.
 
 **One strategy. Multiple markets. Direct execution.**
 
@@ -117,14 +117,13 @@ No additional software, no MetaTrader terminal and no bridges.
 ## Roadmap
 
 - Multiple accounts at once, each with its own Expert Advisors.
-- Exchange-native stop-loss / take-profit on Binance (placed as real orders on the exchange).
+- Exchange-native stop-loss / take-profit on Binance.
 - More broker connectors.
 - Charting — a built-in price chart to view bars, draw objects, and plot indicators on-chart.
 - Linux and macOS support.
 - MetaTrader 5 (MQL5) support — compile and run your MQL5 Expert Advisors and indicators, the way MQL4
-  works today (parsing MQL5 source, not just connecting to an MT5 broker).
-- Data feeds — pair a trading account with a separate market-data feed (trade on one broker, take quotes
-  from another).
+  works today.
+- Data feeds — pair a trading account with a separate market-data feed.
 - Linked accounts (copy-trading) — a signal on one account enters or exits the same trade across many
   linked accounts at once, in the same millisecond.
 
@@ -140,9 +139,10 @@ No additional software, no MetaTrader terminal and no bridges.
   (MetaTrader 4 accounts use the broker's own native S/L and T/P.)
 - **One account at a time.** The Terminal connects to and trades a single broker account. Running several
   accounts side by side is coming soon.
-- **Windows only** (Windows 10 1809+ / Windows 11). Use the 64-bit build — it is the recommended one for
-  everyone. The 32-bit build is only needed if an Expert Advisor `#import`s an old 32-bit DLL that cannot
-  be recompiled for 64-bit; otherwise stay on 64-bit.
+- **Windows only.** A 64-bit Windows 10 or 11 is recommended (Linux and macOS are on the Roadmap). Setup
+  installs the .NET 10 Desktop Runtime, which supports current Windows 10/11 (and matching Server) builds;
+  older editions may work but are not tested. Use the 64-bit build unless an Expert Advisor `#import`s an
+  old 32-bit DLL that cannot be recompiled for 64-bit — those need the 32-bit build.
 
 ## Tips
 
