@@ -31,9 +31,9 @@ TFT lets you run your existing MQL EAs across different brokers, exchanges, and 
 rewriting them. Your MQL strategy is transformed into executable C# and run by the **TFT Runtime**, while
 the execution layer connects it to the broker, exchange, or API you choose.
 
-```
-MQL EA script (.mq4)  =>  TFT Transpiler  =>  C# EA script  =>  TFT Runtime  =>  Execution venue
-```
+<div align="center">
+  <img src="assets/pipeline.png" alt="MQL EA script (.mq4) → TFT Transpiler → C# EA script → TFT Runtime → Execution venue" width="880">
+</div>
 
 Your EA on top, the C# the Transpiler generates below — the C# is the code TFT actually compiles and runs:
 
