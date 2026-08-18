@@ -144,13 +144,13 @@ No additional software, no MetaTrader terminal and no bridges.
   older editions may work but are not tested. Use the 64-bit build unless an Expert Advisor `#import`s an
   old 32-bit DLL that cannot be recompiled for 64-bit — those need the 32-bit build.
 
-## Tips
+## Privacy & security
 
 - **Everything stays on your PC.** TFT operates no server and the Terminal sends us nothing — no telemetry,
   no analytics, no account registration. Your credentials, positions, trade history, Expert Advisors and
   logs live only in the Terminal's `Workdir` on your own machine; API keys and passwords are stored
   encrypted and are never uploaded anywhere. The Terminal connects to the network only for your own
-  broker/exchange, update checks, and any notifications you configure yourself. (Full detail: SECURITY.md.)
+  broker/exchange, update checks, and any notifications you configure yourself. (Full detail: [SECURITY.md](SECURITY.md).)
 - Your Expert Advisors, indicators and libraries live in `Workdir\MQL4`. They are kept across updates and
   are **never** removed on uninstall.
 - Never share your `accounts.dat`, API keys or API secrets. Log files contain no keys, but they do contain
@@ -162,6 +162,7 @@ No additional software, no MetaTrader terminal and no bridges.
 - **A question, an idea, or showing what you built** → [Discussions](https://github.com/TradingForge/TFT-releases/discussions)
 - **What's not done yet (known limitations & roadmap)** → [NOTES.md](NOTES.md)
 - **What changed per version** → [CHANGELOG.md](CHANGELOG.md) and the [releases](https://github.com/TradingForge/TFT-releases/releases)
+- **How your data is handled** → [SECURITY.md](SECURITY.md)
 
 > ⚠️ Issues and Discussions are public. **Never paste API keys, API secrets, passwords or your
 > `accounts.dat`.** Log files contain no keys, but they do contain account names and server addresses.
