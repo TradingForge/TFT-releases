@@ -23,6 +23,8 @@ exchanges, and trading APIs. No MT4/MT5 terminals or fragile third-party bridges
 
 ---
 
+![TradingForge Terminal — the main window: the Navigator with MT4, Binance, cTrader and Interactive Brokers accounts; the Runtime grid running several Expert Advisors; Market Watch, the Trade grid and live logs](assets/github_screen.png)
+
 ## How it works
 
 TFT lets you run your existing MQL EAs across different brokers, exchanges, and trading APIs — without
