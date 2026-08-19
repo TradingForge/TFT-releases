@@ -50,7 +50,7 @@ void OnTick()
 ```
 
 <div align="center">
-  <img src="assets/transpile_chevron.png" alt="" height="18" align="middle"> &nbsp; <b>transpiled to C#</b>
+  <img src="assets/transpile_note.png" alt="transpiled to C#" height="22">
 </div>
 
 ```csharp
