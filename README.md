@@ -69,7 +69,7 @@ same EA that ran in MetaTrader runs here, against brokers MetaTrader never suppo
 the runtime, which routes orders to whichever venue you connect:
 
 <div align="center">
-  <img src="assets/hub.png" alt="Strategy scripts feed the TFT Runtime, which routes orders to MT4, Binance USDT futures, OKX, cTrader, Interactive Brokers and other venues" width="880">
+  <img src="assets/hub.png" alt="Strategy scripts (MQL, MT5, custom) feed the TradingForge Terminal, which transpiles and runs them, routing orders to MT4, Binance USDT futures and other brokers, exchanges and APIs" width="880">
 </div>
 
 ---
