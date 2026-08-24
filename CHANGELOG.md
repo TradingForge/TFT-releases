@@ -2,6 +2,39 @@
 
 All notable changes to TradingForge Terminal, newest first.
 
+## 1.0.11 - 2026-08-24
+
+### What's new
+
+- Maintenance and internal improvements.
+
+## 1.0.10 - 2026-08-23
+
+### What's new
+
+- Binance positions and closed trades now show the actual execution price of each order.
+
+## 1.0.9 - 2026-08-22
+
+### What's new
+
+- Live orders on real accounts are now sized with live exchange limits, not demo limits.
+- Live prices no longer freeze ΓÇö the mark price keeps updating.
+- Take-profit and stop-loss orders placed from the exchange's web order form now appear in the terminal and no longer drop your account connection.
+- Pending orders filled while the terminal was offline keep their ticket, magic number, and TP/SL after reconnecting.
+- Connection status now tracks the market data feed accurately.
+- Security and stability fixes.
+
+## 1.0.8 - 2026-08-20
+
+### What's new
+
+- Triggered buy-stop and sell-stop orders now become open positions correctly on Binance.
+- A take-profit order placed outside the terminal no longer corrupts your order list or drops the broker connection.
+- Corrected the misspelled "Commission" column header in the Trade grid.
+- Help > About and the README now show the current support contact address.
+- Refreshed documentation with a clearer overview diagram and an up-to-date main-window screenshot.
+
 ## 1.0.7 - 2026-08-18
 
 ### What's new
