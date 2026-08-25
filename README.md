@@ -133,11 +133,13 @@ No additional software, no MetaTrader terminal and no bridges.
 - **Source code only (`.mq4`), not compiled `.ex4`.** The Terminal compiles the original MQL4 source, so
   you need the `.mq4` file. Pre-compiled `.ex4` binaries (for example from the MetaTrader Market, or
   protected/encrypted Expert Advisors) cannot be loaded — there is no decompilation.
-- **Binance stop-loss / take-profit are handled by the Terminal, not by the exchange.** S/L and T/P are
-  watched locally and the position is closed by the Terminal when price reaches the level. They are
-  **not** placed as native orders on Binance yet — so they only work while the Terminal is running and
-  connected to the account. Exchange-side placement is coming in a future version (see *Roadmap*).
-  (MetaTrader 4 accounts use the broker's own native S/L and T/P.)
+- **Binance stop-loss / take-profit are handled by the Terminal, not by the exchange.** There are three
+  options:
+    - **Internally** — S/L and T/P are monitored by TFT, and the position is closed automatically when the
+      level is reached. This requires TFT to be running and connected, so it carries some execution risk.
+    - **By Exchange** — native exchange-side S/L and T/P placement is planned for a future version.
+    - **Manual** — full S/L and T/P can be attached manually through the Binance web terminal. However, this
+      method is not available through the Binance API.
 - **One account at a time.** The Terminal connects to and trades a single broker account. Running several
   accounts side by side is coming soon.
 - **Windows only.** A 64-bit Windows 10 or 11 is recommended (Linux and macOS are on the Roadmap). Setup
