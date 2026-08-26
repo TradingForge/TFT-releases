@@ -86,8 +86,8 @@ Installs for the current user, no administrator rights. Take the 64-bit build un
 
 **.NET 10 Desktop Runtime** — Setup installs it automatically if it is missing.
 
-For a while after each new release, Windows may still show a blue **"Windows protected your PC"** screen
-until SmartScreen builds up reputation for the download — click **More info**, then **Run anyway** to continue.
+The first time you run the installer, Windows may show a blue **"Windows protected your PC"** screen —
+click **More info**, then **Run anyway** to continue.
 
 The Terminal offers new versions itself (*Help → Check for updates*).
 
