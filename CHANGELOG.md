@@ -2,6 +2,16 @@
 
 All notable changes to TradingForge Terminal, newest first.
 
+## 1.0.12 - 2026-08-26
+
+### What's new
+
+- Expert Advisors and price history updates run more smoothly, with fixes for rare timing glitches that could cause erratic behavior.
+- Your account limit now follows your license tier, which is shown in the About window and title bar; the Backends row is removed.
+- The Single Account Mode dialog now makes clear that the one-account limit applies only to the Beta tier.
+- The guide now explains the three ways Binance stop loss and take profit can be handled: internally, by the exchange, or manually.
+- The guide now explains the Windows SmartScreen "Windows protected your PC" prompt, which appears only the first time you run a new release.
+
 ## 1.0.11 - 2026-08-24
 
 ### What's new
