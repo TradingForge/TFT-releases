@@ -162,19 +162,6 @@ No additional software, no MetaTrader terminal and no bridges.
 - Never share your `accounts.dat`, API keys or API secrets. Log files contain no keys, but they do contain
   account names and server addresses.
 
-## Support the project
-
-TradingForge Terminal is free during Beta. If it saves you time, you can support development with crypto — thank you 🙏
-
-**Send only on the matching network.** Funds sent on the wrong network cannot be recovered.
-
-| Network | Address |
-|---|---|
-| **Tron** (TRC-20) | `THnH7ihFYSJ2Z2sjCsAqB53RwieARDA7dn` |
-| **Bitcoin** | `bc1qwrrzmx43ks3sgkp6qmgy6pcssvfr5jasxdekgk` |
-| **Solana** | `9G2ezVrnsMzvbm1VLQgemusd24QAJpb77pJSvztQuU8b` |
-| **Ethereum** (any Ethereum-based network, any token) | `0x545A8597f231221b620f9bD49152c5026c5ab5a9` |
-
 ## Getting help
 
 - **Something is broken** → [open an issue](https://github.com/TradingForge/TFT-releases/issues)
@@ -183,6 +170,17 @@ TradingForge Terminal is free during Beta. If it saves you time, you can support
 - **What changed per version** → [CHANGELOG.md](CHANGELOG.md) and the [releases](https://github.com/TradingForge/TFT-releases/releases)
 - **How your data is handled** → [SECURITY.md](SECURITY.md)
 - **Contact us directly** → [tradingforge.terminal@gmail.com](mailto:tradingforge.terminal@gmail.com)
+
+## Support the project
+
+TradingForge Terminal is free during Beta. If it saves you time, you can support development with crypto — thank you 🙏
+
+| Network | Address |
+|---|---|
+| **Tron** (TRC-20) | `THnH7ihFYSJ2Z2sjCsAqB53RwieARDA7dn` |
+| **Bitcoin** | `bc1qwrrzmx43ks3sgkp6qmgy6pcssvfr5jasxdekgk` |
+| **Solana** | `9G2ezVrnsMzvbm1VLQgemusd24QAJpb77pJSvztQuU8b` |
+| **Ethereum** (any Ethereum-based network, any token) | `0x545A8597f231221b620f9bD49152c5026c5ab5a9` |
 
 ## Legal
 
