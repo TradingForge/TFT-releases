@@ -173,7 +173,13 @@ No additional software, no MetaTrader terminal and no bridges.
 
 ## Support the project
 
-If it saves you time, you can support development with crypto — thank you 🙏
+If it saves you time, you can support development — thank you 🙏
+
+Pay by card or PayPal:
+
+[![Support on Ko-fi](https://img.shields.io/badge/Ko--fi-Support%20development-FF5E5B?logo=kofi&logoColor=white)](https://ko-fi.com/tradingforge)
+
+Or with crypto:
 
 | Network | Address |
 |---|---|
