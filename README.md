@@ -173,7 +173,7 @@ No additional software, no MetaTrader terminal and no bridges.
 
 ## Support the project
 
-TradingForge Terminal is free during Beta. If it saves you time, you can support development with crypto — thank you 🙏
+If it saves you time, you can support development with crypto — thank you 🙏
 
 | Network | Address |
 |---|---|
