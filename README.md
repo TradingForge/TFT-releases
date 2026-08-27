@@ -175,7 +175,7 @@ No additional software, no MetaTrader terminal and no bridges.
 
 If it saves you time, you can support development — thank you 🙏
 
-Pay by card or PayPal:
+Donate by card or PayPal:
 
 [![Support on Ko-fi](https://img.shields.io/badge/Ko--fi-Support%20development-FF5E5B?logo=kofi&logoColor=white)](https://ko-fi.com/tradingforge)
 
