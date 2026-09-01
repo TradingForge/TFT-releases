@@ -113,10 +113,41 @@ No additional software, no MetaTrader terminal and no bridges.
 ## Why still run MT4 account through TFT
 
 - **Multiple accounts at once** — one terminal driving several MT4 accounts in parallel (coming soon).
-- **Performance** — your EAs are compiled to native code, not interpreted; more on this in a later note.
+- **Performance** — your EAs run as compiled native code, ~60× faster tick-to-trade than MetaTrader 4 (measured; see **Performance** below).
 - **Extra timeframes** — chart periods beyond MetaTrader 4's fixed set.
 - **Broker + feed separation** — trade on your MT4 broker while taking quotes from a separate data feed
   (see *Roadmap*).
+
+### Performance — your MQL runs as compiled native code
+
+*Many-hour wire-sniffer test — Npcap/Wireshark, tick-to-trade metric — on an old laptop (Intel Core i7-6700HQ, 32 GB RAM):*
+
+```
+          t_in ⧗ (Quote)                              t_out ⧗ (Trade)
+               ▼                                              ▼
+┌────────────┐ ║ ┌─────────┐   ┌──────────────┐   ┌─────────┐ ║ ┌────────────┐
+│ MT4 Server │─╫▶│ Backend │──▶│ Runtime (EA) │──▶│ Backend │─╫▶│ MT4 Server │
+└────────────┘ ║ └─────────┘   └──────────────┘   └─────────┘ ║ └────────────┘
+          sniffer tap                                    sniffer tap
+          NIC / wire                                     NIC / wire
+               └────────── INTEGRAL = t_out − t_in ───────────┘
+
+   TFT ~0.6 ms  vs  MetaTrader 4 ~40 ms median / ~57 ms mean  →  ~60–90× faster
+```
+
+Raw measured run (milliseconds):
+
+| Latency (ms)     | Min   | Median     | Mean   | p99     |
+|------------------|-------|------------|--------|---------|
+| **TFT**          | 0.241 | **0.590**  | 0.600  | 1.176   |
+| **MetaTrader 4** | 6.248 | **40.966** | 56.863 | 181.899 |
+
+| Metric  | TFT         | MetaTrader 4 | TFT is          |
+|---------|-------------|--------------|-----------------|
+|  Median | **~0.6 ms** | **~40 ms**   | **~60× faster** |
+|   Mean  |  ~0.6 ms    | ~57 ms       | ~95× faster     |
+
+**Conclusion:** TFT is significantly faster — your Expert Advisor runs more like a well-optimized C# application. Beyond lower latency, TFT also delivers much more consistent and predictable performance, while MetaTrader 4 shows significantly greater variation. More optimizations are on the way.
 
 ## Roadmap
 

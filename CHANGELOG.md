@@ -2,6 +2,27 @@
 
 All notable changes to TradingForge Terminal, newest first.
 
+## 1.0.15 - 2026-08-31
+
+### What's new
+
+- Account equity now includes credit, so your balance matches what your broker reports.
+- Expert Advisors react faster to incoming ticks, cutting the delay before orders reach your broker.
+- Product details and license now point to tradingforge-terminal.com.
+
+## 1.0.14 - 2026-08-27
+
+### What's new
+
+- Maintenance and internal improvements.
+
+## 1.0.13 - 2026-08-27
+
+### What's new
+
+- Security and stability fixes.
+- Documentation adds new ways to support the project, including card, PayPal, and crypto donations.
+
 ## 1.0.12 - 2026-08-26
 
 ### What's new
