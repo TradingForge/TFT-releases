@@ -120,7 +120,7 @@ No additional software, no MetaTrader terminal and no bridges.
 
 ### Performance — your MQL runs as compiled native code
 
-*Many-hour wire-sniffer test — Npcap/Wireshark, tick-to-trade metric — on an old laptop (Intel Core i7-6700HQ, 32 GB RAM):*
+*Many-hour wire-sniffer test — Npcap/Wireshark, tick-to-trade metric — on an old laptop (Intel Core i7-6700HQ, 32 GB RAM), running a simple EA that computes three indicators every tick and makes a trade decision:*
 
 ```
           t_in ⧗ (Quote)                              t_out ⧗ (Trade)
