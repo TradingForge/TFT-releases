@@ -80,7 +80,7 @@ The test EA calculated three indicators on every tick and made a trading decisio
 
 **Test hardware:** Intel Core i7-6700HQ and 32 GB of RAM.
 
-In this test, TFT was not only faster but substantially more consistent, while MetaTrader 4 showed much greater latency variation.
+In this test, TFT was dramatically faster and substantially more consistent, while MetaTrader 4 showed much greater latency variation.
 
 ## Download
 
