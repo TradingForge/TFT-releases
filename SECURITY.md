@@ -19,9 +19,6 @@ uploaded anywhere.
 The Terminal connects to the network only for:
 
 - **Your broker or exchange** — the account you connected, over its own API
-- **MetaTrader 4 accounts** — during login the MT4 connectivity library also contacts its vendor's
-  login-id service (`loginid-mt4.mtapi.io`), resolved through Cloudflare DNS-over-HTTPS. This is part of
-  how MT4 connectivity works and is not operated by us
 - **Update checks** — a request to this repository for the current version; it carries no information
   about you or your accounts
 - **Notifications** — Telegram or email, only if you configure them yourself

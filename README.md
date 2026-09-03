@@ -101,11 +101,12 @@ When creating exchange API credentials, grant only the permissions TFT needs for
 
 ## Roadmap
 
-- Multiple accounts, each with its own Expert Advisors.
 - Exchange-native stop-loss and take-profit on Binance.
+- MQL4 scripts, run on demand as in MT4.
+- Multiple accounts, each with its own Expert Advisors.
 - cTrader and Interactive Brokers backends.
-- More brokers, exchanges, and trading APIs.
 - Separate market-data feeds.
+- More brokers, exchanges, and trading APIs.
 - Built-in charts and on-chart indicators.
 - Linked accounts and copy trading.
 - MQL5 Expert Advisors and indicators.
