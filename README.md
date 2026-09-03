@@ -32,7 +32,7 @@ Your source is compiled by TFT. The MQL4 standard-library runtime is implemented
 
 ## Platform status
 
-```css
+```text
 ┌────────────────────────┐                                     ┌── MT4 accounts          [AVAILABLE]
 │ MQL4 EA  [AVAILABLE]   │──┐                                  ├── Binance Futures       [AVAILABLE]
 └────────────────────────┘  │                                  ├── cTrader               [IN DEVELOPMENT]
@@ -56,11 +56,11 @@ The test EA calculated three indicators on every tick and made a trading decisio
 
 ```text
           t_in (Quote)                                  t_out (Trade)
-               ▼                                              ▼
+               v                                              v
 ┌────────────┐   ┌─────────┐   ┌──────────────┐   ┌─────────┐   ┌────────────┐
-│ MT4 Server │──▶│ Backend │──▶│ Runtime (EA) │──▶│ Backend │──▶│ MT4 Server │
+│ MT4 Server │──>│ Backend │──>│ Runtime (EA) │──>│ Backend │──>│ MT4 Server │
 └────────────┘   └─────────┘   └──────────────┘   └─────────┘   └────────────┘
-               ▲                                              ▲
+               ^                                              ^
           sniffer tap                                    sniffer tap
           NIC / wire                                     NIC / wire
                └──────── INTEGRAL = t_out - t_in ─────────────┘
