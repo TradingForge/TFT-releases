@@ -6,7 +6,7 @@ Run your existing MQL4 Expert Advisors across supported trading platforms—with
 
 **One strategy. Multiple markets. Direct execution.**
 
-[![Watch TFT run an MQL4 strategy live on Binance](assets/github_screen.png)](VIDEO_URL)
+[![Watch TFT run an MQL4 strategy live on Binance](https://img.youtube.com/vi/_2AquHojYVk/maxresdefault.jpg)](https://www.youtube.com/watch?v=_2AquHojYVk&t=19s)
 
 In the demo, a simple EMA crossover strategy is compiled in TFT, verified in the MT4 Strategy Tester, and then launched on Binance. When the signal arrives, TFT opens the position and it appears immediately in the Binance web terminal.
 
