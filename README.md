@@ -38,7 +38,7 @@ Your source is compiled by TFT. The MQL4 standard-library runtime is implemented
 └────────────────────────┘  │                                  ├── cTrader               [IN DEVELOPMENT]
                             │                                  ├── Interactive Brokers   [IN DEVELOPMENT]
 ┌────────────────────────┐  │    ┌──────────────────────────┐  ├── Additional exchanges  [ROADMAP]
-│ MQL5 EA    [ROADMAP]   │──┼──▶ │  TradingForge Terminal   │──┤
+│ MQL5 EA    [ROADMAP]   │──┼──> │  TradingForge Terminal   │──┤
 └────────────────────────┘  │    │  Extensible backends     │  ├── FIX-protocol brokers  [ROADMAP]
                             │    └──────────────────────────┘  ├── Proprietary APIs      [ROADMAP]
 ┌────────────────────────┐  │                                  ├── DEX / DeFi            [ROADMAP]
