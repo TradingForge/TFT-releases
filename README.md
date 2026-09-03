@@ -121,7 +121,7 @@ When creating exchange API credentials, grant only the permissions TFT needs for
 
 TFT operates no server and sends us nothing: no telemetry, analytics, account registration, strategies, credentials, positions, or trade history.
 
-Your Expert Advisors, indicators, and libraries remain under `Workdir\MQL4`. Credentials are stored locally in encrypted form. Updates do not remove your strategies, and uninstalling TFT does not remove the Workdir.
+Your Expert Advisors, indicators, and libraries remain under `Workdir\MQL4`. Updates and uninstalling TFT do not remove your strategies.
 
 The Terminal connects to the network only for:
 
