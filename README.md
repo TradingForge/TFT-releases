@@ -72,11 +72,7 @@ The test EA calculated three indicators on every tick and made a trading decisio
 |---|---:|---:|---:|---:|
 | **TFT** | 0.241 ms | **0.590 ms** | 0.600 ms | 1.176 ms |
 | **MetaTrader 4** | 6.248 ms | **40.966 ms** | 56.863 ms | 181.899 ms |
-
-| Metric | TFT | MetaTrader 4 | Measured difference |
-|---|---:|---:|---:|
-| Median latency | ~0.59 ms | ~41 ms | **~69× lower latency** |
-| Mean latency | ~0.6 ms | ~57 ms | **~95× lower latency** |
+| **TFT advantage** | — | **~69×** | **~95×** | — |
 
 **Test hardware:** Intel Core i7-6700HQ and 32 GB of RAM.
 
