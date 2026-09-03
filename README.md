@@ -146,7 +146,7 @@ Feedback from MQL and algorithmic traders is especially welcome. Tell me which b
 
 ## Support the project
 
-If TFT saves you time, you can support development — thank you 🙏
+Support development — thank you.
 
 Donate by card or PayPal:
 
