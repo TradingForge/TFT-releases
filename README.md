@@ -33,16 +33,16 @@ Your source is compiled by TFT. The MQL4 standard-library runtime is implemented
 ## Platform status
 
 ```text
-┌────────────────────────┐                                 ┌── MT4 accounts          [AVAILABLE]
-│ MQL4 EA  [AVAILABLE]   │──┐                              ├── Binance Futures       [AVAILABLE]
-└────────────────────────┘  │                              ├── cTrader               [IN DEVELOPMENT]
-                            │                              ├── Interactive Brokers   [IN DEVELOPMENT]
-┌────────────────────────┐  │   ┌──────────────────────────┐  ├── Additional exchanges  [ROADMAP]
+┌────────────────────────┐                                      ┌── MT4 accounts          [AVAILABLE]
+│ MQL4 EA  [AVAILABLE]   │──┐                                  ├── Binance Futures       [AVAILABLE]
+└────────────────────────┘  │                                  ├── cTrader               [IN DEVELOPMENT]
+                            │                                  ├── Interactive Brokers   [IN DEVELOPMENT]
+┌────────────────────────┐  │   ┌──────────────────────────┐   ├── Additional exchanges  [ROADMAP]
 │ MQL5 EA    [ROADMAP]   │──┼──▶│  TradingForge Terminal   │──┤
-└────────────────────────┘  │   │  Extensible backends     │  ├── FIX-protocol brokers  [ROADMAP]
-                            │   └──────────────────────────┘  ├── Proprietary APIs      [ROADMAP]
-┌────────────────────────┐  │                                 ├── DEX / DeFi            [ROADMAP]
-│ Custom Script [ROADMAP] │──┘                                 └── Custom backends       [ROADMAP]
+└────────────────────────┘  │   │  Extensible backends     │   ├── FIX-protocol brokers  [ROADMAP]
+                            │   └──────────────────────────┘   ├── Proprietary APIs      [ROADMAP]
+┌────────────────────────┐  │                                  ├── DEX / DeFi            [ROADMAP]
+│ Custom Script [ROADMAP]│──┘                                  └── Custom backends       [ROADMAP]
 └────────────────────────┘
 ```
 
