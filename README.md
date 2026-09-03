@@ -1,210 +1,151 @@
-<!-- BANNER: drag a wide PNG (about 1280x320) into any GitHub issue comment, then paste here the
-     user-attachments URL GitHub gives you. Do NOT commit large images to the repo - git history
-     cannot be cleaned afterwards. -->
-<!-- ![TradingForge Terminal](PASTE_BANNER_URL_HERE) -->
+# TradingForge Terminal
 
-# <img src="assets/logo_mark.png" alt="" height="40" align="middle">&nbsp; TradingForge Terminal
+> **Keep your MQL4 strategy. Change everything behind it.**
 
-**Keep your trading script. Change everything behind it.**
-
-[![Latest release](https://img.shields.io/github/v/release/TradingForge/TFT-releases?label=latest)](https://github.com/TradingForge/TFT-releases/releases/latest)
-[![Downloads](https://img.shields.io/github/downloads/TradingForge/TFT-releases/total?label=downloads)](https://github.com/TradingForge/TFT-releases/releases)
-[![Platform](https://img.shields.io/badge/platform-Windows%2010%2F11-blue)](#known-limitations)
-[![Status](https://img.shields.io/badge/status-beta-orange)](#known-limitations)
-
-Your trading strategy shouldn't be locked to the platform it was built for. Traders and developers often
-have working MQL EAs, but moving them to another broker, exchange, or asset class means rewriting code,
-maintaining bridges, running additional terminals, and accepting extra points of failure.
-
-**TradingForge Terminal removes that platform lock-in.** Run your existing MQL EAs across brokers,
-exchanges, and trading APIs. No MT4/MT5 terminals or fragile third-party bridges in the middle required.
+Run your existing MQL4 Expert Advisors on Binance and other supported trading platforms—without rewriting the 
+strategy and without running a MetaTrader terminal or a third-party bridge in the middle.
 
 **One strategy. Multiple markets. Direct execution.**
 
----
+[![Watch TFT run an MQL4 strategy live on Binance](assets/github_screen.png)](VIDEO_URL)
 
-![TradingForge Terminal — the main window: the Navigator with MT4, Binance, cTrader and Interactive Brokers accounts; the Runtime grid running several Expert Advisors; Market Watch, the Trade grid and live logs](assets/github_screen.png)
+In the demo, a simple EMA crossover strategy is compiled in TFT, verified in the MT4 Strategy Tester, and then launched unchanged on Binance. When the signal arrives,
+ TFT opens the position and it appears immediately in the Binance web terminal.
+
+## Why TFT
+
+- **Keep your MQL4 code** — run the same `.mq4` strategy logic across supported platforms.
+- **Compiled performance** — TFT transpiles MQL4 to .NET code, which is JIT-compiled to native machine code at runtime.
+- **Direct execution** — connect to the broker or exchange API without a MetaTrader bridge in the middle.
+- **Extra timeframes** — use chart periods beyond MT4's fixed set across supported backends.
+- **Multi-account execution is coming** — run strategies across multiple accounts and different platforms from one terminal.
+- **Broker/feed separation is planned** — use a fast or high-quality market-data feed while sending trades through a different broker.
+- **Linked accounts are planned** — copy the same strategy action across a group of accounts.
 
 ## How it works
 
-TFT lets you run your existing MQL EAs across different brokers, exchanges, and trading APIs — without
-rewriting them. Your MQL strategy is transformed into executable C# and run by the **TFT Runtime**, while
-the execution layer connects it to the broker, exchange, or API you choose.
-
 <div align="center">
-  <img src="assets/pipeline.png" alt="MQL EA script (.mq4) → TFT Transpiler → C# EA script → TFT Runtime → Execution venue" width="880">
+	<img src="assets/pipeline.png" alt="MQL4 EA source is transformed into C# by the TFT Transpiler, compiled and run by the TFT Runtime, and connected to a broker, exchange, or trading API" width="880">
 </div>
 
-Your EA on top, the C# the Transpiler generates below — the C# is the code TFT actually compiles and runs:
+TFT transforms your MQL4 source into executable C# and compiles it. The TFT Runtime executes the strategy, while the selected backend handles market data, account state, and orders for the connected broker or exchange.
 
-```cpp
-// MaCross.mq4 — your EA
-void OnTick()
-{
-   double fast = iMA(NULL, 0, FastPeriod, 0, MODE_EMA, PRICE_CLOSE, 1);
-   double slow = iMA(NULL, 0, SlowPeriod, 0, MODE_EMA, PRICE_CLOSE, 1);
+Your source is compiled by TFT. The MQL4 standard-library runtime is implemented by TFT, allowing supported Expert Advisors to run without MetaTrader being present at runtime.
 
-   if (fast > slow && OrdersTotal() == 0)
-      OrderSend(Symbol(), OP_BUY, Lots, Ask, 3, 0, 0, "MaCross", 0, 0, clrGreen);
-}
+## Platform status
+
+| Platform | Status | Notes |
+|---|---|---|
+| Binance Futures | **Available** | Direct market-data and trading integration |
+| MetaTrader 4 accounts | **Available** | Run MQL4 EAs through the TFT Runtime |
+| cTrader | **In development** | Planned backend |
+| Interactive Brokers | **In development** | Planned backend |
+| Additional brokers and exchanges | **Roadmap** | Requested platforms are welcome in Discussions |
+
+The current release runs one connected account at a time. Multi-account execution across accounts and platforms is the next major step.
+
+## Performance — compiled execution
+
+TFT runs MQL as compiled .NET code that is JIT-compiled to native machine code. To measure the complete local tick-to-trade path, we ran a multi-hour Npcap/Wireshark capture.
+
+The test EA calculated three indicators on every tick and made a trading decision. Latency was measured at the network interface from the incoming quote packet to the outgoing trade request:
+
+```text
+          t_in (Quote)                                  t_out (Trade)
+               ▼                                              ▼
+┌────────────┐   ┌─────────┐   ┌──────────────┐   ┌─────────┐   ┌────────────┐
+│ MT4 Server │──▶│ Backend │──▶│ Runtime (EA) │──▶│ Backend │──▶│ MT4 Server │
+└────────────┘   └─────────┘   └──────────────┘   └─────────┘   └────────────┘
+               ▲                                              ▲
+          sniffer tap                                    sniffer tap
+          NIC / wire                                     NIC / wire
+               └──────── INTEGRAL = t_out - t_in ─────────────┘
 ```
 
-<div align="center">
-  <img src="assets/transpile_note.png" alt="transpiled to C#" height="22">
-</div>
+### Raw measured latency
 
-```csharp
-// MaCross.cs — generated by the TFT Transpiler
-public new void __F_OnTick()
-{
-    mql_double fast = iMA(NULL, 0.Mql(), __V_19, 0.Mql(), MODE_EMA, PRICE_CLOSE, 1.Mql());
-    mql_double slow = iMA(NULL, 0.Mql(), __V_20, 0.Mql(), MODE_EMA, PRICE_CLOSE, 1.Mql());
-    if ((mql_bool)((bool)(fast > slow) && (bool)(OrdersTotal() == 0.Mql())))
-        OrderSend(Symbol(), OP_BUY, __V_21, __G_Ask, 3.Mql(), /* … */ clrGreen);
-}
-```
+| Runtime | Minimum | Median | Mean | p99 |
+|---|---:|---:|---:|---:|
+| **TFT** | 0.241 ms | **0.590 ms** | 0.600 ms | 1.176 ms |
+| **MetaTrader 4** | 6.248 ms | **40.966 ms** | 56.863 ms | 181.899 ms |
 
-Your source is compiled, not interpreted, and the MQL4 standard library is implemented natively — so the
-same EA that ran in MetaTrader runs here, against brokers MetaTrader never supported. Strategy scripts feed
-the runtime, which routes orders to whichever venue you connect:
+| Metric | TFT | MetaTrader 4 | Measured difference |
+|---|---:|---:|---:|
+| Median latency | ~0.6 ms | ~41 ms | **~69× lower latency** |
+| Mean latency | ~0.6 ms | ~57 ms | **~95× lower latency** |
 
-<div align="center">
-  <img src="assets/hub.png" alt="Strategy scripts (MQL, MT5, custom) feed the TradingForge Terminal, which transpiles and runs them, routing orders to MT4, Binance USDT futures and other brokers, exchanges and APIs" width="880">
-</div>
+**Test hardware:** an older laptop with an Intel Core i7-6700HQ and 32 GB of RAM.
 
----
+In this test, TFT was not only faster but substantially more consistent, while MetaTrader 4 showed much greater latency variation. These figures describe this specific EA, machine, connection, and test setup; they are not a guarantee of broker execution or fill latency.
 
 ## Download
 
-| | |
+| Build | Download |
 |---|---|
-| **64-bit** (recommended) | [**TFT-Setup-x64.exe**](https://github.com/TradingForge/TFT-releases/releases/latest/download/TFT-Setup-x64.exe) |
-| **32-bit** | [**TFT-Setup-x86.exe**](https://github.com/TradingForge/TFT-releases/releases/latest/download/TFT-Setup-x86.exe) |
+| **64-bit — recommended** | [TFT-Setup-x64.exe](https://github.com/TradingForge/TFT-releases/releases/latest/download/TFT-Setup-x64.exe) |
+| **32-bit** | [TFT-Setup-x86.exe](https://github.com/TradingForge/TFT-releases/releases/latest/download/TFT-Setup-x86.exe) |
 
-Installs for the current user, no administrator rights. Take the 64-bit build unless your Expert Advisors
-`#import` a **32-bit DLL** — those need the 32-bit build. Both can be installed side by side.
+Installation is per-user and does not require administrator rights. Use the 64-bit build unless your Expert Advisor imports a 32-bit DLL; in that case, install the 32-bit build. Both versions can be installed side by side.
 
-**.NET 10 Desktop Runtime** — Setup installs it automatically if it is missing.
+Setup installs the .NET 10 Desktop Runtime automatically if it is missing. TFT can check for new versions through **Help → Check for updates**.
 
-The first time you run the installer, Windows may show a blue **"Windows protected your PC"** screen —
-click **More info**, then **Run anyway** to continue.
+The current installer is not yet code-signed, so Windows may display a blue **Windows protected your PC** warning. Select **More info → Run anyway** to continue. Code signing is planned.
 
-The Terminal offers new versions itself (*Help → Check for updates*).
+## Setup guides
 
----
+- [Add an MT4 account — method 1](MT4_SETUP_VIDEO_1_URL)
+- [Add an MT4 account — method 2](MT4_SETUP_VIDEO_2_URL)
+- [Connect a Binance account](BINANCE_SETUP_VIDEO_URL)
 
-## Getting Started
-
-1. Launch TFT Terminal
-2. Add your trading account
-3. Log in to the account
-4. Add your MQL EA to the Navigator
-5. Run the EA with your preferred settings
-
-No additional software, no MetaTrader terminal and no bridges.
-
-<!-- SCREENSHOT: the main window with the Runtime grid and a couple of advisors running.
-     Drop it into an issue comment and paste the URL here. -->
-<!-- ![The terminal](PASTE_SCREENSHOT_URL_HERE) -->
-<!-- VIDEO: GitHub plays an .mp4 inline when a user-attachments URL sits on its own line.
-     Until then, link a YouTube video as a clickable thumbnail:
-     [![Watch: attach an EA in one minute](PASTE_THUMBNAIL_URL)](PASTE_YOUTUBE_URL) -->
-
-## Why still run MT4 account through TFT
-
-- **Multiple accounts at once** — one terminal driving several MT4 accounts in parallel (coming soon).
-- **Performance** — your EAs run as compiled native code, ~60× faster tick-to-trade than MetaTrader 4 (measured; see **Performance** below).
-- **Extra timeframes** — chart periods beyond MetaTrader 4's fixed set.
-- **Broker + feed separation** — trade on your MT4 broker while taking quotes from a separate data feed
-  (see *Roadmap*).
-
-### Performance — your MQL runs as compiled native code
-
-*Many-hour wire-sniffer test — Npcap/Wireshark, tick-to-trade metric — on an old laptop (Intel Core i7-6700HQ, 32 GB RAM), running a simple EA that computes three indicators every tick and makes a trade decision:*
-
-```
-          t_in ⧗ (Quote)                              t_out ⧗ (Trade)
-               ▼                                              ▼
-┌────────────┐ ║ ┌─────────┐   ┌──────────────┐   ┌─────────┐ ║ ┌────────────┐
-│ MT4 Server │─╫▶│ Backend │──▶│ Runtime (EA) │──▶│ Backend │─╫▶│ MT4 Server │
-└────────────┘ ║ └─────────┘   └──────────────┘   └─────────┘ ║ └────────────┘
-          sniffer tap                                    sniffer tap
-          NIC / wire                                     NIC / wire
-               └────────── INTEGRAL = t_out − t_in ───────────┘
-
-   TFT ~0.6 ms  vs  MetaTrader 4 ~40 ms median / ~57 ms mean  →  ~60–90× faster
-```
-
-Raw measured run (milliseconds):
-
-| Latency (ms)     | Min   | Median     | Mean   | p99     |
-|------------------|-------|------------|--------|---------|
-| **TFT**          | 0.241 | **0.590**  | 0.600  | 1.176   |
-| **MetaTrader 4** | 6.248 | **40.966** | 56.863 | 181.899 |
-
-| Metric  | TFT         | MetaTrader 4 | TFT is          |
-|---------|-------------|--------------|-----------------|
-|  Median | **~0.6 ms** | **~40 ms**   | **~60× faster** |
-|   Mean  |  ~0.6 ms    | ~57 ms       | ~95× faster     |
-
-**Conclusion:** TFT is significantly faster — your Expert Advisor runs more like a well-optimized C# application. Beyond lower latency, TFT also delivers much more consistent and predictable performance, while MetaTrader 4 shows significantly greater variation. More optimizations are on the way.
+When creating exchange API credentials, grant only the permissions TFT needs for trading. Do not enable withdrawals.
 
 ## Roadmap
 
-- Multiple accounts at once, each with its own Expert Advisors.
-- Exchange-native stop-loss / take-profit on Binance.
-- More backends.
-- Charting — a built-in price chart to view bars, draw objects, and plot indicators on-chart.
+- Multiple accounts, each with its own Expert Advisors.
+- Exchange-native stop-loss and take-profit on Binance.
+- cTrader and Interactive Brokers backends.
+- More brokers, exchanges, and trading APIs.
+- Separate market-data feeds.
+- Built-in charts and on-chart indicators.
+- Linked accounts and copy trading.
+- MQL5 Expert Advisors and indicators.
 - Linux and macOS support.
-- MetaTrader 5 (MQL5) support — compile and run your MQL5 Expert Advisors and indicators, the way MQL4
-  works today.
-- Data feeds — pair a trading account with a separate market-data feed.
-- Linked accounts (copy-trading) — a signal on one account enters or exits the same trade across many
-  linked accounts at once, in the same millisecond.
 
-## Known limitations
+## Current limitations
 
-- **Source code only (`.mq4`), not compiled `.ex4`.** The Terminal compiles the original MQL4 source, so
-  you need the `.mq4` file. Pre-compiled `.ex4` binaries (for example from the MetaTrader Market, or
-  protected/encrypted Expert Advisors) cannot be loaded — there is no decompilation.
-- **Binance stop-loss / take-profit are handled by the Terminal, not by the exchange.** There are three
-  options:
-    - **Internally** — S/L and T/P are monitored by TFT, and the position is closed automatically when the
-      level is reached. This requires TFT to be running and connected, so it carries some execution risk.
-    - **By Exchange** — native exchange-side S/L and T/P placement is planned for a future version.
-    - **Manual** — full S/L and T/P can be attached manually through the Binance web terminal. However, this
-      method is not available through the Binance API.
-- **One account at a time.** The Terminal connects to and trades a single broker account. Running several
-  accounts side by side is coming soon.
-- **Windows only.** A 64-bit Windows 10 or 11 is recommended (Linux and macOS are on the Roadmap). Setup
-  installs the .NET 10 Desktop Runtime, which supports current Windows 10/11 (and matching Server) builds;
-  older editions may work but are not tested. Use the 64-bit build unless an Expert Advisor `#import`s an
-  old 32-bit DLL that cannot be recompiled for 64-bit — those need the 32-bit build.
+- **MQL4 source is required.** TFT loads `.mq4` files, not compiled `.ex4` binaries. It does not decompile protected or encrypted EAs.
+- **One account at a time.** Multi-account execution is in development.
+- **Windows only.** A 64-bit Windows 10 or 11 system is recommended.
+- **MQL5 is not supported yet.** MQL5 support is on the roadmap.
+- **Binance stop-loss and take-profit are currently monitored by TFT.** TFT must remain running and connected for terminal-side S/L and T/P handling. Exchange-native protective orders are planned.
 
-## Privacy & security
+## Privacy and security
 
-- **Everything stays on your PC.** TFT operates no server and the Terminal sends us nothing — no telemetry,
-  no analytics, no account registration. Your credentials, positions, trade history, Expert Advisors and
-  logs live only in the Terminal's `Workdir` on your own machine; API keys and passwords are stored
-  encrypted and are never uploaded anywhere. The Terminal connects to the network only for your own
-  broker/exchange, update checks, and any notifications you configure yourself. (Full detail: [SECURITY.md](SECURITY.md).)
-- Your Expert Advisors, indicators and libraries live in `Workdir\MQL4`. They are kept across updates and
-  are **never** removed on uninstall.
-- Never share your `accounts.dat`, API keys or API secrets. Log files contain no keys, but they do contain
-  account names and server addresses.
+TFT operates no server and sends us nothing: no telemetry, analytics, account registration, strategies, credentials, positions, or trade history.
 
-## Getting help
+Your Expert Advisors, indicators, and libraries remain under `Workdir\MQL4`. Credentials are stored locally in encrypted form. Updates do not remove your strategies, and uninstalling TFT does not remove the Workdir.
 
-- **Something is broken** → [open an issue](https://github.com/TradingForge/TFT-releases/issues)
-- **A question, an idea, or showing what you built** → [Discussions](https://github.com/TradingForge/TFT-releases/discussions)
-- **What's not done yet (known limitations & roadmap)** → [NOTES.md](NOTES.md)
-- **What changed per version** → [CHANGELOG.md](CHANGELOG.md) and the [releases](https://github.com/TradingForge/TFT-releases/releases)
-- **How your data is handled** → [SECURITY.md](SECURITY.md)
-- **Contact us directly** → [tradingforge.terminal@gmail.com](mailto:tradingforge.terminal@gmail.com)
+The Terminal connects to the network only for:
+
+- your configured broker or exchange;
+- update checks;
+- notifications you configure yourself.
+
+See [SECURITY.md](SECURITY.md) for the complete security model.
+
+## Help and feedback
+
+- Something is broken: [open an issue](https://github.com/TradingForge/TFT-releases/issues)
+- Questions, feature requests, and platform requests: [start a discussion](https://github.com/TradingForge/TFT-releases/discussions)
+- Release history: [CHANGELOG.md](CHANGELOG.md)
+- Known limitations and development notes: [NOTES.md](NOTES.md)
+- Contact: tradingforge.terminal@gmail.com
+
+Feedback from MQL and algorithmic traders is especially welcome. Tell us which brokers, exchanges, data feeds, and MQL features matter most to your workflow.
 
 ## Support the project
 
-If it saves you time, you can support development — thank you 🙏
+If TFT saves you time, you can support development — thank you 🙏
 
 Donate by card or PayPal:
 
@@ -221,8 +162,6 @@ Or with crypto:
 
 ## Legal
 
-Copyright © TradingForge. All rights reserved. This software is proprietary: licensed for use, not for
-redistribution, resale, repackaging or modification.
+Copyright © TradingForge. All rights reserved. This software is proprietary and licensed for use, not for redistribution, resale, repackaging, or modification.
 
-Trading involves substantial risk of loss and is not suitable for every investor. Automated trading can
-lose money faster than manual trading. You are responsible for what your Expert Advisors do.
+Trading involves substantial risk of loss and is not suitable for every investor. Automated trading can lose money faster than manual trading. You are responsible for the behavior and results of your Expert Advisors.
