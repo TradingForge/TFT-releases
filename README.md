@@ -32,7 +32,7 @@ Your source is compiled by TFT. The MQL4 standard-library runtime is implemented
 
 ## Platform status
 
-```text
+```css
 ┌────────────────────────┐                                     ┌── MT4 accounts          [AVAILABLE]
 │ MQL4 EA  [AVAILABLE]   │──┐                                  ├── Binance Futures       [AVAILABLE]
 └────────────────────────┘  │                                  ├── cTrader               [IN DEVELOPMENT]
