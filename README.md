@@ -63,7 +63,7 @@ The test EA calculated three indicators on every tick and made a trading decisio
                ^                                              ^
           sniffer tap                                    sniffer tap
           NIC / wire                                     NIC / wire
-               └──────── INTEGRAL = t_out - t_in ─────────────┘
+               └──── TICK-TO-TRADE LATENCY = t_out - t_in ────┘
 ```
 
 ### Raw measured latency
