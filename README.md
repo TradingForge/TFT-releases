@@ -32,13 +32,19 @@ Your source is compiled by TFT. The MQL4 standard-library runtime is implemented
 
 ## Platform status
 
-| Platform | Status | Notes |
-|---|---|---|
-| Binance Futures | **Available** | Direct market-data and trading integration |
-| MetaTrader 4 accounts | **Available** | Run MQL4 EAs through the TFT Runtime |
-| cTrader | **In development** | Planned backend |
-| Interactive Brokers | **In development** | Planned backend |
-| Additional brokers and exchanges | **Roadmap** | Requested platforms are welcome in Discussions |
+```text
+┌────────────────────────┐                                 ┌── MT4 accounts          [AVAILABLE]
+│ MQL4 EA  [AVAILABLE]   │──┐                              ├── Binance Futures       [AVAILABLE]
+└────────────────────────┘  │                              ├── cTrader               [IN DEVELOPMENT]
+                            │                              ├── Interactive Brokers   [IN DEVELOPMENT]
+┌────────────────────────┐  │   ┌──────────────────────────┐  ├── Additional exchanges  [ROADMAP]
+│ MQL5 EA    [ROADMAP]   │──┼──▶│  TradingForge Terminal   │──┤
+└────────────────────────┘  │   │  Extensible backends     │  ├── FIX-protocol brokers  [ROADMAP]
+                            │   └──────────────────────────┘  ├── Proprietary APIs      [ROADMAP]
+┌────────────────────────┐  │                                 ├── DEX / DeFi            [ROADMAP]
+│ Custom Script [ROADMAP] │──┘                                 └── Custom backends       [ROADMAP]
+└────────────────────────┘
+```
 
 The current release runs one connected account at a time. Multi-account execution across accounts and platforms is the next major step.
 
@@ -113,7 +119,7 @@ When creating exchange API credentials, grant only the permissions TFT needs for
 
 - **MQL4 source is required.** TFT loads `.mq4` files, not compiled `.ex4` binaries. It does not decompile protected or encrypted EAs.
 - **One account at a time.** Multi-account execution is in development.
-- **Windows only.** A 64-bit Windows 10 or 11 system is recommended.
+- **Windows only.** A 64-bit Windows 10 or 11 system is recommended. Linux and Mac support is on the roadmap.
 - **MQL5 is not supported yet.** MQL5 support is on the roadmap.
 - **Binance stop-loss and take-profit are currently monitored by TFT.** TFT must remain running and connected for terminal-side S/L and T/P handling. Exchange-native protective orders are planned.
 
