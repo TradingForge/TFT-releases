@@ -2,20 +2,18 @@
 
 > **Keep your MQL4 strategy. Change everything behind it.**
 
-Run your existing MQL4 Expert Advisors on Binance and other supported trading platforms—without rewriting the 
-strategy and without running a MetaTrader terminal or a third-party bridge in the middle.
+Run your existing MQL4 Expert Advisors across supported trading platforms—without rewriting the strategy and without running a MetaTrader terminal or a third-party bridge in the middle.
 
 **One strategy. Multiple markets. Direct execution.**
 
 [![Watch TFT run an MQL4 strategy live on Binance](assets/github_screen.png)](VIDEO_URL)
 
-In the demo, a simple EMA crossover strategy is compiled in TFT, verified in the MT4 Strategy Tester, and then launched unchanged on Binance. When the signal arrives,
- TFT opens the position and it appears immediately in the Binance web terminal.
+In the demo, a simple EMA crossover strategy is compiled in TFT, verified in the MT4 Strategy Tester, and then launched on Binance. When the signal arrives, TFT opens the position and it appears immediately in the Binance web terminal.
 
 ## Why TFT
 
 - **Keep your MQL4 code** — run the same `.mq4` strategy logic across supported platforms.
-- **Compiled performance** — TFT transpiles MQL4 to .NET code, which is JIT-compiled to native machine code at runtime.
+- **Compiled performance** — TFT transpiles MQL4 to .NET code, which is JIT-compiled to native machine code at runtime. In our measured test, the complete local tick-to-trade path had a median latency of 0.590 ms (590 microseconds).
 - **Direct execution** — connect to the broker or exchange API without a MetaTrader bridge in the middle.
 - **Extra timeframes** — use chart periods beyond MT4's fixed set across supported backends.
 - **Multi-account execution is coming** — run strategies across multiple accounts and different platforms from one terminal.
@@ -71,12 +69,12 @@ The test EA calculated three indicators on every tick and made a trading decisio
 
 | Metric | TFT | MetaTrader 4 | Measured difference |
 |---|---:|---:|---:|
-| Median latency | ~0.6 ms | ~41 ms | **~69× lower latency** |
+| Median latency | ~0.59 ms | ~41 ms | **~69× lower latency** |
 | Mean latency | ~0.6 ms | ~57 ms | **~95× lower latency** |
 
-**Test hardware:** an older laptop with an Intel Core i7-6700HQ and 32 GB of RAM.
+**Test hardware:** Intel Core i7-6700HQ and 32 GB of RAM.
 
-In this test, TFT was not only faster but substantially more consistent, while MetaTrader 4 showed much greater latency variation. These figures describe this specific EA, machine, connection, and test setup; they are not a guarantee of broker execution or fill latency.
+In this test, TFT was not only faster but substantially more consistent, while MetaTrader 4 showed much greater latency variation.
 
 ## Download
 
@@ -141,7 +139,7 @@ See [SECURITY.md](SECURITY.md) for the complete security model.
 - Known limitations and development notes: [NOTES.md](NOTES.md)
 - Contact: tradingforge.terminal@gmail.com
 
-Feedback from MQL and algorithmic traders is especially welcome. Tell us which brokers, exchanges, data feeds, and MQL features matter most to your workflow.
+Feedback from MQL and algorithmic traders is especially welcome. Tell me which brokers, exchanges, data feeds, and MQL features matter most to your workflow.
 
 ## Support the project
 
