@@ -93,9 +93,9 @@ The current installer is not yet code-signed, so Windows may display a blue **Wi
 
 ## Setup guides
 
-- [Add an MT4 account — method 1](MT4_SETUP_VIDEO_1_URL)
-- [Add an MT4 account — method 2](MT4_SETUP_VIDEO_2_URL)
-- [Connect a Binance account](BINANCE_SETUP_VIDEO_URL)
+- [Add an MT4 account — method 1](https://www.youtube.com/watch?v=Lpbe3jNcEhQ)
+- [Add an MT4 account — method 2](https://www.youtube.com/watch?v=5ERQ1Rk3A8Q)
+- [Connect a Binance account](https://www.youtube.com/watch?v=_Mp1MZtHTxY)
 
 When creating exchange API credentials, grant only the permissions TFT needs for trading. Do not enable withdrawals.
 
