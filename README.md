@@ -163,6 +163,4 @@ Or with crypto:
 
 ## Legal
 
-Copyright © TradingForge. All rights reserved. This software is proprietary and licensed for use, not for redistribution, resale, repackaging, or modification.
-
 Trading involves substantial risk of loss and is not suitable for every investor. Automated trading can lose money faster than manual trading. You are responsible for the behavior and results of your Expert Advisors.

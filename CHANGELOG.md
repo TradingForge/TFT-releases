@@ -2,6 +2,21 @@
 
 All notable changes to TradingForge Terminal, newest first.
 
+## 1.0.16 - 2026-09-04
+
+### What's new
+
+- forum_words  added
+- Polish TFT marketing site and release documentation
+- docs(readme): name the test EA in the Performance caption (3 indicators + decision per tick)
+- docs(readme): add Performance section — tick-to-trade latency vs MetaTrader 4
+- perf: hand the argument array to reflection instead of copying it
+- perf: compute a handler's parameter count once, not per invoke
+- fix(logging): make the MT4LIB silencer the FIRST rule, so the guard works
+- 1.0.15 => 1.0.16
+- perf: stop allocating three delegates per tick
+- docs(marketing): build the real static site from the landing design
+
 ## 1.0.15 - 2026-08-31
 
 ### What's new
