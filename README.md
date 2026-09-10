@@ -141,6 +141,7 @@ See [SECURITY.md](SECURITY.md) for the complete security model.
 - Release history: [CHANGELOG.md](CHANGELOG.md)
 - Known limitations and development notes: [NOTES.md](NOTES.md)
 - Contact: tradingforge.terminal@gmail.com
+- Connect on LinkedIn: [Vadim Zaitsev](https://www.linkedin.com/in/vadim-zaitsev-b31b1338/)
 
 Feedback from MQL and algorithmic traders is especially welcome. Tell me which brokers, exchanges, data feeds, and MQL features matter most to your workflow.
 

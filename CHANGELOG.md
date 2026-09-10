@@ -2,6 +2,18 @@
 
 All notable changes to TradingForge Terminal, newest first.
 
+## 1.0.17 - 2026-09-08
+
+### What's new
+
+- Run MQL4 scripts alongside your Expert Advisors, with a new Scripts folder and Navigator entries for browsing and launching them.
+- Start, monitor, and stop script runs directly from the Runtime grid.
+- Assign different scripts to the same slot, with a new Copy To action and a Run dialog that sizes correctly.
+- Clicking Run no longer starts the same script twice.
+- Scripts that don't define OnInit no longer log a warning.
+- Expert Advisors now match MT4's results in more cases.
+- Security and stability fixes.
+
 ## 1.0.16 - 2026-09-04
 
 ### What's new
