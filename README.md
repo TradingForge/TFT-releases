@@ -101,7 +101,6 @@ When creating exchange API credentials, grant only the permissions TFT needs for
 
 ## Roadmap
 
-- Exchange-native stop-loss and take-profit on Binance.
 - MQL4 scripts, run on demand as in MT4.
 - Multiple accounts, each with its own Expert Advisors.
 - cTrader and Interactive Brokers backends.
@@ -118,7 +117,6 @@ When creating exchange API credentials, grant only the permissions TFT needs for
 - **One account at a time.** Multi-account execution is in development.
 - **Windows only.** A 64-bit Windows 10 or 11 system is recommended. Linux and Mac support is on the roadmap.
 - **MQL5 is not supported yet.** MQL5 support is on the roadmap.
-- **Binance stop-loss and take-profit are currently monitored by TFT.** TFT must remain running and connected for terminal-side S/L and T/P handling. Exchange-native protective orders are planned.
 
 ## Privacy and security
 

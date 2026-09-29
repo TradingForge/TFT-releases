@@ -2,6 +2,18 @@
 
 All notable changes to TradingForge Terminal, newest first.
 
+## 1.0.18 - 2026-09-27
+
+### What's new
+
+- cTrader: stop loss and take profit are always held on the broker's server, and the "Internally" SL/TP mode and the unused LotSize account setting have been removed.
+- cTrader: stop loss and take profit on market orders are set at the exact prices your EA asked for.
+- cTrader: profit/loss, tick value and margin are shown in your account's deposit currency, and MODE_MARGINREQUIRED uses the broker's own margin figure.
+- cTrader: EAs receive OnOrderUpdate after every order change, and trade reports are more complete.
+- cTrader: open orders and positions load before the account shows as logged in, partially closed trades keep their history after a resync, and price feeds are more reliable.
+- Binance: the instrument list stays cached for the week and refreshes each Monday, so it loads faster, and the sandbox URL hint now points to testnet.binancefuture.com.
+- Editing an account no longer logs a false "deploy failed" message.
+
 ## 1.0.17 - 2026-09-08
 
 ### What's new

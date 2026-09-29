@@ -47,11 +47,12 @@ itself does not give you:
   source, so you need the `.mq4` file. Pre-compiled `.ex4` binaries (for example from the
   MetaTrader Market, or protected/encrypted Expert Advisors) cannot be loaded — there is no
   decompilation.
-- **Binance stop-loss / take-profit are handled by the Terminal, not by the exchange.** There are three
+- **Binance stop-loss / take-profit can be placed natively on the exchange.** There are three
   options:
+    - **By Exchange** — native exchange-side S/L and T/P are placed as Binance protective orders and
+      remain active on the exchange even if the Terminal is closed.
     - **Internally** — S/L and T/P are monitored by TFT, and the position is closed automatically when the
       level is reached. This requires TFT to be running and connected, so it carries some execution risk.
-    - **By Exchange** — native exchange-side S/L and T/P placement is planned for a future version.
     - **Manual** — full S/L and T/P can be attached manually through the Binance web terminal. However, this
       method is not available through the Binance API.
 - **One account at a time.** The Terminal connects to and trades a single broker account.
