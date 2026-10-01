@@ -2,6 +2,18 @@
 
 All notable changes to TradingForge Terminal, newest first.
 
+## 1.0.19 - 2026-09-29
+
+### What's new
+
+- Adds Binance Spot trading, with live order updates, trade operations, and account reconciliation.
+- Places Binance stop-loss and take-profit orders natively on the exchange, falling back to terminal-side handling when needed.
+- Mirrors stop-loss and take-profit changes made on the Binance website into the terminal.
+- Cancels protective orders left behind when a Binance trade closes while the order is still being placed.
+- Makes Binance account reconciliation after a restart or reconnect more reliable.
+- Speeds up cTrader Expert Advisors, with faster first prices at startup, always-current account info, and margin estimates ready before you need them.
+- Fixes the cTrader connector starting up before its session is connected.
+
 ## 1.0.18 - 2026-09-27
 
 ### What's new
