@@ -35,15 +35,16 @@ Your source is compiled by TFT. The MQL4 standard-library runtime is implemented
 ```text
 ┌────────────────────────┐                                     ┌── MT4 accounts          [AVAILABLE]
 │ MQL4 EA  [AVAILABLE]   │──┐                                  ├── Binance Futures       [AVAILABLE]
-└────────────────────────┘  │                                  ├── cTrader               [IN DEVELOPMENT]
-                            │                                  ├── Interactive Brokers   [IN DEVELOPMENT]
-┌────────────────────────┐  │    ┌──────────────────────────┐  ├── Additional exchanges  [ROADMAP]
+└────────────────────────┘  │                                  ├── cTrader               [AVAILABLE]
+                            │                                  ├── Binance Spot          [IN DEVELOPMENT]
+┌────────────────────────┐  │    ┌──────────────────────────┐  ├── OKX                   [IN DEVELOPMENT]
 │ MQL5 EA    [ROADMAP]   │──┼──> │  TradingForge Terminal   │──┤
-└────────────────────────┘  │    │  Extensible backends     │  ├── FIX-protocol brokers  [ROADMAP]
-                            │    └──────────────────────────┘  ├── Proprietary APIs      [ROADMAP]
-┌────────────────────────┐  │                                  ├── DEX / DeFi            [ROADMAP]
-│ Custom Script [ROADMAP]│──┘                                  └── Custom backends       [ROADMAP]
-└────────────────────────┘
+└────────────────────────┘  │    │  Extensible backends     │  ├── Interactive Brokers   [IN DEVELOPMENT]
+                            │    └──────────────────────────┘  ├── Hyperliquid           [IN DEVELOPMENT]
+┌────────────────────────┐  │                                  ├── FIX-protocol brokers  [ROADMAP]
+│ Custom Script [ROADMAP]│──┘                                  ├── Proprietary APIs      [ROADMAP]
+└────────────────────────┘                                     ├── DEX / DeFi            [ROADMAP]
+                                                               └── Custom backends       [ROADMAP]
 ```
 
 The current release runs one connected account at a time. Multi-account execution across accounts and platforms is the next major step.
@@ -103,7 +104,7 @@ When creating exchange API credentials, grant only the permissions TFT needs for
 
 - MQL4 scripts, run on demand as in MT4.
 - Multiple accounts, each with its own Expert Advisors.
-- cTrader and Interactive Brokers backends.
+- Interactive Brokers backend.
 - Separate market-data feeds.
 - More brokers, exchanges, and trading APIs.
 - Built-in charts and on-chart indicators.

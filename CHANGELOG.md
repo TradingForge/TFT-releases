@@ -2,6 +2,12 @@
 
 All notable changes to TradingForge Terminal, newest first.
 
+## 1.1.0 - 2026-10-04
+
+### What's new
+
+- Binance Spot: Expert Advisors can't use OrderClose on a partly filled pending order, and its stop loss and take profit are set only after the order fills completely.
+
 ## 1.0.19 - 2026-09-29
 
 ### What's new
