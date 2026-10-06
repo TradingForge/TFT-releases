@@ -102,9 +102,7 @@ When creating exchange API credentials, grant only the permissions TFT needs for
 
 ## Roadmap
 
-- MQL4 scripts, run on demand as in MT4.
-- Multiple accounts, each with its own Expert Advisors.
-- Interactive Brokers backend.
+- Interactive Brokers, OKX, HyperLiquid backends.
 - Separate market-data feeds.
 - More brokers, exchanges, and trading APIs.
 - Built-in charts and on-chart indicators.
@@ -115,7 +113,6 @@ When creating exchange API credentials, grant only the permissions TFT needs for
 ## Current limitations
 
 - **MQL4 source is required.** TFT loads `.mq4` files, not compiled `.ex4` binaries. It does not decompile protected or encrypted EAs.
-- **One account at a time.** Multi-account execution is in development.
 - **Windows only.** A 64-bit Windows 10 or 11 system is recommended. Linux and Mac support is on the roadmap.
 - **MQL5 is not supported yet.** MQL5 support is on the roadmap.
 

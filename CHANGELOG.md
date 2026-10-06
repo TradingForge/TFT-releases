@@ -2,6 +2,31 @@
 
 All notable changes to TradingForge Terminal, newest first.
 
+## 1.1.3 - 2026-10-06
+
+### What's new
+
+- fix(ctrader): retry login in background and release 1.1.3
+
+## 1.1.3 - 2026-10-06
+
+### Fixes
+
+- cTrader: retry failed initial connections in the background after one login attempt; fix reconnect handoff and logout cleanup.
+
+## 1.1.2 - 2026-10-05
+
+### What's new
+
+- fix(ctrader): replay subscriptions before connect
+
+## 1.1.1 - 2026-10-05
+
+### What's new
+
+- cTrader support is now available in TradingForge Terminal. Run MQL4 Expert Advisors directly on supported cTrader accounts through the official cTrader Open API.
+- To connect a cTrader account, create an Open API application and obtain its Client ID and Client Secret: [Register a cTrader Open API application](https://help.ctrader.com/open-api/api-application/).
+
 ## 1.1.0 - 2026-10-04
 
 ### What's new
