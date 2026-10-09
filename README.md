@@ -92,6 +92,14 @@ Setup installs the .NET 10 Desktop Runtime automatically if it is missing. TFT c
 
 The current installer is not yet code-signed, so Windows may display a blue **Windows protected your PC** warning. Select **More info → Run anyway** to continue. Code signing is planned.
 
+### Multi-account version — TFT Pro
+
+Run multiple accounts and MQL4 Expert Advisors simultaneously across MT4, Binance Futures, and cTrader — with more platforms to come.
+
+![TFT Pro multi-account runtime](assets/multi-account-screen.png)
+
+To get the multi-account version, contact me at [tradingforge-terminal@gmail.com](mailto:tradingforge-terminal@gmail.com).
+
 ## Setup guides
 
 - [Add an MT4 account — method 1](https://www.youtube.com/watch?v=Lpbe3jNcEhQ)
